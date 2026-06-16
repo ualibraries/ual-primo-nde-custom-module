@@ -57,3 +57,9 @@ To start up this environment, simply run the following:
 npm install
 npm run start:proxy
 ```
+
+To serve the sandbox environment:
+
+``` bash
+ng serve --proxy-config ./proxy/proxy.conf.mjs
+```
