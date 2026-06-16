@@ -1,7 +1,7 @@
 //set the url of the server you want to test your code with and start the development server using the following command:
 // ng serve --proxy-config ./proxy/proxy.conf.mjs   
 const environments = {
-    'example': 'https://myPrimoVE.com',
+    'sandbox': 'https://arizona-ua-psb.alma.exlibrisgroup.com',
   }
   
-  export const PROXY_TARGET = environments['example']; 
+  export const PROXY_TARGET = environments['sandbox']; 
