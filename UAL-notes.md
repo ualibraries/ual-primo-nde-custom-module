@@ -63,3 +63,36 @@ To serve the sandbox environment:
 ``` bash
 ng serve --proxy-config ./proxy/proxy.conf.mjs
 ```
+
+---
+
+### How to customize the Primo NDE user interface
+
+There are basically four layers of customization here, from simplest to most involved.
+
+#### Static assets (no code) — src/assets/
+
+Drop replacement files in and they get picked up automatically:
+
+   - images/library-logo.png, favicon.ico — branding
+   - css/custom.css, js/custom.js — global CSS/JS overrides injected into the page
+   - icons/custom_icons.svg — custom SVG icon set
+   - homepage/homepage_en.html.tmpl + homepage.css.tmpl — per-language homepage HTML/CSS
+   - header-footer/ — header/footer overrides (see its own README)
+
+#### Custom Angular components — src/app/custom1-module/
+
+For behavior/layout changes beyond CSS: scaffold a component (ng generate component X), then register it in customComponentMappings.ts (currently empty — selectorComponentMap) against the nde-* selector slots NDE exposes (e.g. nde-recommendations-before, nde-recommendations-top, etc.). Your component gets injected at that slot. Inside a component you can:
+
+   - get the host component instance via `@Input() hostComponent`
+   - read app state from the NGRX store (inject(Store) + selectors)
+   - get the router via the `SHELL_ROUTER` injection token
+   - translate code-table values with ngx-translate
+
+#### Theming — src/app/styles/
+
+Either pick one of the prebuilt Material themes via view config, or generate your own with `ng generate @angular/material:m3-theme` (answer "yes" to system-level variables) and uncomment the corresponding block in _customized-theme.scss.
+
+#### Add-ons 
+
+For reusable, independently-hosted functionality configured through Alma's Add-On Configuration (separate from a per-view customization package), using `MODULE_PARAMETERS` and `ASSET_BASE_URL` injection.
