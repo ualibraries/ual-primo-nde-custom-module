@@ -1,0 +1,61 @@
+/* =====================================================================
+   UA Libraries — global NDE overrides
+   =====================================================================
+   Loaded into the NDE page as-is (plain CSS, no build step). Holds the
+   brand tokens and global utilities that components under
+   `src/app/ua-features/` reference; components provide fallbacks so
+   they still render if this file isn't loaded.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   Brand tokens — University of Arizona palette
+   --------------------------------------------------------------------- */
+:root {
+  --ua-red:       #ab0520;  /* Arizona Red */
+  --ua-blue:      #0c234b;  /* Arizona Blue */
+  --ua-chili:     #8b0015;
+  --ua-bloom:     #ef4056;
+  --ua-azurite:   #1e5288;
+  --ua-oasis:     #378dbd;
+  --ua-cool-gray: #e2e9eb;
+  --ua-warm-gray: #f4ede5;
+  --ua-white:     #ffffff;
+
+  /* Chat widget geometry — single source of truth for
+     `ua-features/chat`. Edit here to move or resize the widget. */
+  --chat-drawer-width:  350px;
+  --chat-drawer-height: 450px;
+  --chat-panel-bottom:  1rem;
+  --chat-tab-width:     3rem;
+  --chat-xs-margin:     1rem;
+  --chat-transition:    0.15s ease-out;
+}
+
+/* ---------------------------------------------------------------------
+   Utilities
+   --------------------------------------------------------------------- */
+
+/* Visually hidden but available to screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------------
+   NDE overrides
+   --------------------------------------------------------------------- */
+
+/* Keep NDE's floating side buttons (e.g. back-to-top) clear of the
+   chat tab on the right edge. Uncomment once the chat is enabled. */
+/*
+.side-bottom-buttons {
+  right: calc(var(--chat-tab-width) + 0.5rem);
+}
+*/
