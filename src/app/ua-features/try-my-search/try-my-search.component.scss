@@ -1,0 +1,61 @@
+:host {
+  display: block;
+  margin-top: 1rem;
+}
+
+.card {
+  background-color: var(--sys-surface-container-low, #f4ede5);
+  border: 1px solid var(--sys-outline-variant, #e2e9eb);
+  border-top: 4px solid var(--ua-blue, #0c234b);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.heading {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: var(--ua-blue, #0c234b);
+}
+
+.external-systems {
+  // `role="list"` on the <ul> keeps the list semantic in Safari, which
+  // drops it when `list-style: none` is applied.
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  > li {
+    // Two per row: each takes half the row minus half the gap.
+    flex: 0 1 calc(50% - 0.5rem);
+  }
+}
+
+.external-system {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--ua-azurite, #1e5288);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+.external-icon {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .external-systems > li {
+    flex-basis: 100%;
+  }
+}
