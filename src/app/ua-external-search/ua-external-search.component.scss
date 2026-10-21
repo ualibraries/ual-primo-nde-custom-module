@@ -1,0 +1,70 @@
+:host { display: block; position: relative; z-index: 1; pointer-events: auto; }
+
+// Styled as one more filter group inside the NDE filters panel:
+// no card, a divider underneath, title row with a collapse chevron.
+.ua-external-search {
+  padding: .25rem 0 .75rem;
+  border-bottom: 1px solid var(--sys-outline-variant, #c9ccd4);
+  margin-bottom: .5rem;
+}
+
+.ua-ext-heading {
+  margin: 0;
+  font: inherit;
+}
+
+.ua-ext-toggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem 0;
+  border: 0;
+  background: none;
+  color: var(--sys-on-surface, #1a1a1a);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--sys-primary, #0c234b);
+    outline-offset: 2px;
+  }
+}
+
+.ua-ext-chevron {
+  transition: transform .2s ease;
+  &.is-collapsed { transform: rotate(180deg); }
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: .25rem 0 0;
+  padding: 0;
+  list-style: none;
+
+  &[hidden] { display: none; }
+}
+
+a {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .3rem .7rem;
+  border: 1px solid var(--sys-outline, #79747e);
+  border-radius: .5rem;
+  color: var(--sys-on-surface, #1a1a1a);
+  font-size: .875rem;
+  text-decoration: none;
+  line-height: 1.2;
+
+  &:hover { background: var(--sys-surface-container-high, #eceef2); }
+  &:focus-visible { outline: 2px solid var(--sys-primary, #0c234b); outline-offset: 2px; }
+}
+
+img { display: block; border-radius: 2px; }
+.ua-ext-icon { opacity: .7; }
