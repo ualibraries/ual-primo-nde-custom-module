@@ -64,6 +64,10 @@ To serve the sandbox environment:
 ng serve --proxy-config ./proxy/proxy.conf.mjs
 ```
 
+Visit the local website serving the proxy:
+**http://localhost:4201/nde/home?vid=01UA_INST:ndeDev&useLocalCustomPackage=true**
+
+
 ---
 
 ### How to customize the Primo NDE user interface
