@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "serve:proxy",
+      "type": "npm",
+      "script": "start:proxy",
+      "isBackground": true,
+      "problemMatcher": {
+        "base": "$tsc-watch",
+        "background": {
+          "activeBegins": true,
+          "beginsPattern": "Generating browser application bundles|Changes detected|Building",
+          "endsPattern": "Compiled successfully|Failed to compile|Compiled with warnings|Application bundle generation complete|Angular Live Development Server is listening"
+        }
+      }
+    }
+  ]
+}

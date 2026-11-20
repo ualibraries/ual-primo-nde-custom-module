@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "NDE sandbox (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "preLaunchTask": "serve:proxy",
+      "url": "http://localhost:4201/nde/home?vid=01UA_INST:ndeDev&useLocalCustomPackage=true",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}
