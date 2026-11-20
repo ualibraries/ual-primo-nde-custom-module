@@ -20,6 +20,7 @@ Then open **http://localhost:4201/nde/home?vid=01UA_INST:ndeDev&useLocalCustomPa
 | [How the proxy server works](docs/proxy.md) | The four proxy rules, config overrides, switching between sandbox and production |
 | [Customizing the Primo NDE UI](docs/customization.md) | The four layers: static assets, custom Angular components, theming, add-ons |
 | [NDE component selectors](docs/nde-selectors.md) | Every `nde-*` selector you can hook a component into, how the slots work, finding selectors on a page |
+| [Integration tests](docs/testing.md) | Running the Playwright suite against the sandbox, writing tests, setting up the My Account login |
 | [Troubleshooting](docs/troubleshooting.md) | Blank pages, "Failed to load view configuration", NG0951, VS Code task problems |
 
 ## Tools
