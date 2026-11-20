@@ -67,6 +67,28 @@ ng serve --proxy-config ./proxy/proxy.conf.mjs
 Visit the local website serving the proxy:
 **http://localhost:4201/nde/home?vid=01UA_INST:ndeDev&useLocalCustomPackage=true**
 
+#### Running from VS Code
+
+The repo includes VS Code config in `.vscode/` that starts the server and opens the sandbox in a browser for you:
+
+- `.vscode/tasks.json` defines a task named **serve:proxy**. It runs `npm run start:proxy`.
+- `.vscode/launch.json` defines a debug config named **NDE sandbox (Chrome)**. It runs the `serve:proxy` task first, waits for the build to finish, then opens Chrome at the sandbox URL above with the VS Code debugger attached.
+
+Ways to use them:
+
+- **Server + browser + debugger:** press **F5**, or open the Run and Debug panel and pick **NDE sandbox (Chrome)**. Breakpoints you set in VS Code's `.ts` files will be hit in the browser. Stopping the debugger closes the browser, but the server keeps running in the terminal panel.
+- **Server only:** Cmd+Shift+P → **Tasks: Run Task** → **serve:proxy**. Then open the URL in any browser yourself.
+- **Quick preview inside VS Code:** with the server running, Cmd+Shift+P → **Simple Browser: Show**, then paste the URL. It has no dev tools, so it's only good for a quick look.
+
+Notes:
+
+- To use Edge instead of Chrome, change `"type": "chrome"` to `"type": "msedge"` in `launch.json`.
+- The task's `problemMatcher` builds on VS Code's built-in `$tsc-watch` matcher, which tells VS Code that the task is a watch task. Its `background` patterns tell VS Code when a build has started and finished. If you see "Make sure to define a problem matcher for watch tasks", VS Code couldn't use the matcher: check View → Output → **Tasks** for errors.
+- If F5 starts the server but never opens the browser, VS Code didn't recognize that the build finished. Find the line `ng serve` prints when the build is done and add its text to `endsPattern` in `tasks.json`.
+- **Blank home page, but search results work:** check the `homepage` block in `proxy/customization_config_override.mjs`. It points Primo at `assets/homepage/homepage_en.html`. If that file doesn't exist (the repo only has `homepage_en.html.tmpl`), the dev server returns an empty page and the home page renders blank. The block is commented out for now. Re-enable it once a real `homepage_en.html` exists.
+- The NG0951 error in `search-bar-presenter.component.ts` that shows up in the console comes from Ex Libris's search bar code, not ours, and it's harmless. The file path looks like it's in this repo only because the debugger maps Primo's source maps onto our folder.
+- Only one copy of the server can use port 4201. If a `serve:proxy` task is already running, VS Code reuses it instead of starting another.
+
 
 ---
 
