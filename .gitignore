@@ -40,3 +40,12 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Playwright integration tests
+/test-results/
+/playwright-report/
+/playwright/.auth/
+/playwright/.cache/
+
+# Local settings (test patron credentials)
+.env
