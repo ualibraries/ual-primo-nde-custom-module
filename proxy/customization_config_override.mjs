@@ -2,6 +2,9 @@ export const customizationConfigOverride = {
   "favIcon": "custom/MOCKINST-MOCKVID/assets/images/favicon.ico",
   "libraryLogo": "custom/MOCKINST-MOCKVID/assets/images/library-logo.png",
   "viewSvg": "custom/MOCKINST-MOCKVID/assets/icons/custom_icons.svg",
+  // UAL: homepage override disabled — src/assets/homepage/ only has a .tmpl
+  // Re-enable once a real homepage_en.html exists.
+  /*
   "homepage": {
     "homepageBGImage": "custom/MOCKINST-MOCKVID/assets/homepage/homepage_background.svg",
     "html": {
@@ -18,4 +21,5 @@ export const customizationConfigOverride = {
 
     }
   }
+  */
 }
